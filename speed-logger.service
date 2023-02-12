@@ -1,0 +1,19 @@
+[Unit]
+Description=Log network speed to a CSV routinely.
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# Change Environment NODE_VERSION to the version of Node installed on your machine.
+Environment=NODE_VERSION=16.10
+# Change User to the user who has read/write access to the speed-logger folder.
+User=changeme
+# Update the ExecStart with the full path to both `node` and where `speed.js` is.
+ExecStart=/path/to/node /path/to/speed-logger/speed.js
+LimitNOFILE=4096
+KillMode=control-group
+IgnoreSIGPIPE=false
+
+[Install]
+WantedBy=multi-user.target

@@ -1,7 +1,7 @@
 Speed Logger
 ============
 
-Log network speed to a CSV routinely.
+Log network speed to a CSV routinely and display in a Dashboard.
 
 ### Web Interface auto update + history
 

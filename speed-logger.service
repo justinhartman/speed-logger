@@ -1,5 +1,5 @@
 [Unit]
-Description=Log network speed to a CSV routinely.
+Description=Log network speed to a CSV routinely and display in a Dashboard.
 Wants=network-online.target
 After=network-online.target
 

@@ -2,9 +2,9 @@
  * Configuration options.
  */
 let options = {
-    root: '/home/odroid/speed-logger',  // Root path of project
-    bin: '/home/odroid/.local/bin',     // Path to local bin folder
-    interval: 300,                      // Interval of test in second
+    root: '/path/to/speed-logger',      // Root path of project
+    bin: '/path/to/.local/bin',         // Path to folder where `speedtest-cli` installed
+    interval: 300,                      // Interval of test in seconds
     logger: true,                       // Save test results
     loggerFileName: 'speed_test.csv',   // Name of file to save history
     enableWebInterface: true,           // Web interface of result
@@ -26,7 +26,7 @@ let options = {
      * ./certbot-auto renew
      */
     secureDomains: null,                // Array of strings [ 'www.example.com' ]
-    secureAdminEmail: 'me@justhart.com' // The admin for the secure email confirmation
+    secureAdminEmail: 'me@example.com'  // The admin for the secure email confirmation
 };
 
 /**
@@ -65,10 +65,12 @@ if (options.enableWebInterface) {
     // Log to console.
     if (options.consoleLog)
         console.log(
-            'Start {0}webserver on {1}:{2} every {3} minutes refresh'.format(options.secureDomains && options.secureAdminEmail ? 'secure' : '',
+            'Start {0}webserver on {1}:{2} every {3} minutes refresh'.format(
+                options.secureDomains && options.secureAdminEmail ? 'secure' : '',
                 options.webInterfaceListenIp,
                 options.webInterfacePort,
-                Math.round(options.interval / 60))
+                Math.round(options.interval / 60)
+            )
         );
 
     let server;
